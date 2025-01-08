@@ -8,6 +8,12 @@
       </list>
     </option>
   </component>
+  <component name="ProjectResources">
+    <resource url="http://javafx.com/fxml" location="$PROJECT_DIR$/src/main/resources/com/ledgersystem/login.fxml" />
+    <resource url="http://javafx.com/fxml/1" location="$PROJECT_DIR$" />
+    <resource url="http://javafx.com/javafx" location="$PROJECT_DIR$" />
+    <resource url="http://javafx.com/javafx/11.0.14-internal" location="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
