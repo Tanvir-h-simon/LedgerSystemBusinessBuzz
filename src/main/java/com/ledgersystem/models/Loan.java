@@ -3,12 +3,12 @@ package com.ledgersystem.models;
 import java.time.LocalDate;
 
 public class Loan {
-    private double principal;
-    private double interestRate;
-    private int repaymentPeriod;
+    private final double principal;
+    private final double interestRate;
+    private final int repaymentPeriod;
     private double outstandingBalance;
     private String status;
-    private LocalDate createdAt;
+    private final LocalDate createdAt;
 
     public Loan(double principal, double interestRate, int repaymentPeriod) {
         this.principal = principal;
@@ -28,9 +28,39 @@ public class Loan {
     }
 
     // Getters and setters
-    public double getOutstandingBalance() { return outstandingBalance; }
-    public String getStatus() { return status; }
-    public LocalDate getCreatedAt() { return createdAt; }
+
+
+    public double getPrincipal() {
+        return principal;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public int getRepaymentPeriod() {
+        return repaymentPeriod;
+    }
+
+    public double getOutstandingBalance() {
+        return outstandingBalance;
+    }
+
+    public void setOutstandingBalance(double outstandingBalance) {
+        this.outstandingBalance = outstandingBalance;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
 
     public void makePayment(double amount) {
         outstandingBalance -= amount;
