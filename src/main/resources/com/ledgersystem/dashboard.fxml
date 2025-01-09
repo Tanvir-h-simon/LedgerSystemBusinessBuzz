@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.ledgersystem.controllers.DashboardController">
-    <top>
-        <MenuBar>
-            <Menu text="File">
-                <MenuItem text="Logout" onAction="#handleLogout"/>
-            </Menu>
-        </MenuBar>
-    </top>
-    <center>
-        <VBox spacing="10">
-            <Label text="Welcome!" fx:id="welcomeLabel"/>
-            <GridPane hgap="10" vgap="10">
-                <Label text="Balance: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <Label fx:id="balanceLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                <Label text="Savings: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <Label fx:id="savingsLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-                <Label text="Loan: " GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <Label fx:id="loanLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-            </GridPane>
-            <HBox spacing="10">
-                <Button text="Debit" onAction="#showDebit"/>
-                <Button text="Credit" onAction="#showCredit"/>
-                <Button text="History" onAction="#showHistory"/>
-                <Button text="Savings" onAction="#showSavings"/>
-                <Button text="Loan" onAction="#showLoan"/>
-                <Button text="Interest Calculator" onAction="#showInterestCalculator"/>
-            </HBox>
-        </VBox>
-    </center>
-</BorderPane>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ledgersystem.controllers.DashboardController" spacing="10">
+
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Logout" onAction="#handleLogout"/>
+        </Menu>
+    </MenuBar>
+
+    <GridPane alignment="CENTER" hgap="10" vgap="10">
+        <Label text="Balance: $" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="balanceLabel" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Savings: $" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="savingsLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Loan: $" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label fx:id="loanLabel" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Debit" onAction="#handleDebit"/>
+        <Button text="Credit" onAction="#handleCredit"/>
+        <Button text="History" onAction="#handleHistory"/>
+        <Button text="Savings" onAction="#handleSavings"/>
+        <Button text="Loan" onAction="#handleLoan"/>
+        <Button text="Interest Calculator" onAction="#handleInterest"/>
+    </HBox>
+
+    <TableView fx:id="transactionTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Date" fx:id="dateColumn"/>
+            <TableColumn text="Description" fx:id="descriptionColumn"/>
+            <TableColumn text="Debit" fx:id="debitColumn"/>
+            <TableColumn text="Credit" fx:id="creditColumn"/>
+            <TableColumn text="Balance" fx:id="balanceColumn"/>
+        </columns>
+    </TableView>
+</VBox>

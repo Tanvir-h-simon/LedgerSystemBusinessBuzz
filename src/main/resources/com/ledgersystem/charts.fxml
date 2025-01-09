@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ledgersystem.controllers.ChartController">
+    <PieChart fx:id="transactionPieChart"/>
+    <LineChart fx:id="balanceLineChart">
+        <xAxis>
+            <CategoryAxis label="Date"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Balance"/>
+        </yAxis>
+    </LineChart>
+</VBox>

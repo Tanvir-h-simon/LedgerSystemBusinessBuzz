@@ -1,65 +1,56 @@
 package com.ledgersystem.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import com.ledgersystem.models.User;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class DashboardController {
-    @FXML private Label welcomeLabel;
     @FXML private Label balanceLabel;
     @FXML private Label savingsLabel;
     @FXML private Label loanLabel;
+    @FXML private TableView<Transaction> transactionTable;
 
-    private User currentUser;
-
+    @FXML
     public void initialize() {
-        // Initialize dashboard data
+        updateLabels();
+        setupTable();
     }
 
-    public void setUser(User user) {
-        this.currentUser = user;
-        updateDashboard();
-    }
-
-    private void updateDashboard() {
-        welcomeLabel.setText("Welcome, " + currentUser.getName());
-        balanceLabel.setText(String.format("$%.2f", currentUser.getBalance()));
-        savingsLabel.setText(String.format("$%.2f", currentUser.getSavings()));
-        loanLabel.setText(String.format("$%.2f", currentUser.getLoan()));
+    private void updateLabels() {
+        // Update balance, savings, and loan labels
     }
 
     @FXML
-    private void showDebit() {
-        // Implement debit screen navigation
+    private void handleDebit() {
+        Dialog<ButtonType> dialog = createTransactionDialog("Debit");
+        // Handle debit transaction
     }
 
     @FXML
-    private void showCredit() {
-        // Implement credit screen navigation
+    private void handleCredit() {
+        Dialog<ButtonType> dialog = createTransactionDialog("Credit");
+        // Handle credit transaction
     }
 
-    @FXML
-    private void showHistory() {
-        // Implement history screen navigation
+    private Dialog<ButtonType> createTransactionDialog(String type) {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle(type + " Transaction");
+
+        GridPane grid = new GridPane();
+        TextField amountField = new TextField();
+        TextField descriptionField = new TextField();
+
+        grid.add(new Label("Amount:"), 0, 0);
+        grid.add(amountField, 1, 0);
+        grid.add(new Label("Description:"), 0, 1);
+        grid.add(descriptionField, 1, 1);
+
+        dialog.getDialogPane().setContent(grid);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+        return dialog;
     }
 
-    @FXML
-    private void showSavings() {
-        // Implement savings screen navigation
-    }
-
-    @FXML
-    private void showLoan() {
-        // Implement loan screen navigation
-    }
-
-    @FXML
-    private void showInterestCalculator() {
-        // Implement calculator screen navigation
-    }
-
-    @FXML
-    private void handleLogout() {
-        // Implement logout functionality
-    }
+    // Add other handler methods...
 }
